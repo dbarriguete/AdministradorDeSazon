@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  administradordesazon:
+    image: ${DOCKER_REGISTRY-}administradordesazon
+    build:
+      context: .\AdministradorDeSazon
+      dockerfile: Dockerfile

@@ -1,0 +1,13 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  administradordesazon:
+    build:
+      context: C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon
+      dockerfile: Dockerfile
+    image: administradordesazon
+    ports:
+    - target: 80
+version: '3.4'
