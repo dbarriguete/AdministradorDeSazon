@@ -1,0 +1,25 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  administradordesazon:
+    build:
+      args:
+        source: obj/Docker/empty/
+      context: C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon
+      dockerfile: Dockerfile
+    entrypoint: cmd /c "start /B C:\\ServiceMonitor.exe w3svc & C:\\remote_debugger\\x64\\msvsmon.exe
+      /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn
+      /nowowwarn /timeout:2147483646"
+    environment:
+      DEV_ENVIRONMENT: '1'
+      VBCSCOMPILER_TTL: '604800'
+    image: administradordesazon:dev
+    ports:
+    - target: 80
+    volumes:
+    - C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon:C:\inetpub\wwwroot:rw
+    - C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Remote
+      Debugger:C:\remote_debugger:ro
+version: '3.4'
