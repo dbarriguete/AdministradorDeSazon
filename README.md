@@ -17,3 +17,4 @@ El sistema es utilizado por medio de diferentes usuarios:
 Los usuarios Gerentes del lugar y Jefes de piso tienen los privilegios para dar de alta un nuevo usuarios, también para actualizarlo, cambiar contraseña, eliminar usuario, bloquear usuario, NO se puede cambiar el nombre de usuario.
 
 
+## Planes de precios
