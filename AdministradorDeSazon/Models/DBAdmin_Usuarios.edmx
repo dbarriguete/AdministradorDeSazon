@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AdministradorDeSazonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adm_Negocios">
+          <Key>
+            <PropertyRef Name="IDNegocio" />
+          </Key>
+          <Property Name="IDNegocio" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NombreComercial" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FechaFundacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaBaja" Type="datetime" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="AIDUsuario" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Adm_Sucursales">
+          <Key>
+            <PropertyRef Name="IDSucursal" />
+          </Key>
+          <Property Name="IDNegocio" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IDSucursal" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NombreSucursal" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaInicioOperacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="Calle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumeroExt" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroInt" Type="varchar" MaxLength="50" />
+          <Property Name="Colonia" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CP" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Municipio" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Pais" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Adm_Usuarios">
+          <Key>
+            <PropertyRef Name="AIDUsuario" />
+          </Key>
+          <Property Name="AIDUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ACorreoElectronico" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="ANombreUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ANombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ANacimientoAgno" Type="smallint" Nullable="false" />
+          <Property Name="ANacimientoMes" Type="tinyint" Nullable="false" />
+          <Property Name="AAvatar" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AIDUsuarioPadre" Type="uniqueidentifier" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="FechaUltimaSesion" Type="datetime" />
+          <Property Name="Rol" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Permiso" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Adm_Negocios_Adm_Usuarios">
+          <End Role="Adm_Usuarios" Type="Self.Adm_Usuarios" Multiplicity="1" />
+          <End Role="Adm_Negocios" Type="Self.Adm_Negocios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adm_Usuarios">
+              <PropertyRef Name="AIDUsuario" />
+            </Principal>
+            <Dependent Role="Adm_Negocios">
+              <PropertyRef Name="AIDUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adm_Sucursales_Adm_Negocios">
+          <End Role="Adm_Negocios" Type="Self.Adm_Negocios" Multiplicity="1" />
+          <End Role="Adm_Sucursales" Type="Self.Adm_Sucursales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adm_Negocios">
+              <PropertyRef Name="IDNegocio" />
+            </Principal>
+            <Dependent Role="Adm_Sucursales">
+              <PropertyRef Name="IDNegocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdministradorDeSazonModelStoreContainer">
+          <EntitySet Name="Adm_Negocios" EntityType="Self.Adm_Negocios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Adm_Sucursales" EntityType="Self.Adm_Sucursales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Adm_Usuarios" EntityType="Self.Adm_Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Adm_Negocios_Adm_Usuarios" Association="Self.FK_Adm_Negocios_Adm_Usuarios">
+            <End Role="Adm_Usuarios" EntitySet="Adm_Usuarios" />
+            <End Role="Adm_Negocios" EntitySet="Adm_Negocios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adm_Sucursales_Adm_Negocios" Association="Self.FK_Adm_Sucursales_Adm_Negocios">
+            <End Role="Adm_Negocios" EntitySet="Adm_Negocios" />
+            <End Role="Adm_Sucursales" EntitySet="Adm_Sucursales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdministradorDeSazonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adm_Negocios">
+          <Key>
+            <PropertyRef Name="IDNegocio" />
+          </Key>
+          <Property Name="IDNegocio" Type="Guid" Nullable="false" />
+          <Property Name="NombreComercial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaFundacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="AIDUsuario" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Adm_Usuarios" Relationship="Self.FK_Adm_Negocios_Adm_Usuarios" FromRole="Adm_Negocios" ToRole="Adm_Usuarios" />
+          <NavigationProperty Name="Adm_Sucursales" Relationship="Self.FK_Adm_Sucursales_Adm_Negocios" FromRole="Adm_Negocios" ToRole="Adm_Sucursales" />
+        </EntityType>
+        <EntityType Name="Adm_Sucursales">
+          <Key>
+            <PropertyRef Name="IDSucursal" />
+          </Key>
+          <Property Name="IDNegocio" Type="Guid" Nullable="false" />
+          <Property Name="IDSucursal" Type="Guid" Nullable="false" />
+          <Property Name="NombreSucursal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaInicioOperacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="Calle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumeroExt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroInt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Colonia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Municipio" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pais" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Adm_Negocios" Relationship="Self.FK_Adm_Sucursales_Adm_Negocios" FromRole="Adm_Sucursales" ToRole="Adm_Negocios" />
+        </EntityType>
+        <EntityType Name="Adm_Usuarios">
+          <Key>
+            <PropertyRef Name="AIDUsuario" />
+          </Key>
+          <Property Name="AIDUsuario" Type="Guid" Nullable="false" />
+          <Property Name="ACorreoElectronico" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANombreUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANacimientoAgno" Type="Int16" Nullable="false" />
+          <Property Name="ANacimientoMes" Type="Byte" Nullable="false" />
+          <Property Name="AAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AIDUsuarioPadre" Type="Guid" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="FechaUltimaSesion" Type="DateTime" Precision="3" />
+          <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Permiso" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Adm_Negocios" Relationship="Self.FK_Adm_Negocios_Adm_Usuarios" FromRole="Adm_Usuarios" ToRole="Adm_Negocios" />
+        </EntityType>
+        <Association Name="FK_Adm_Negocios_Adm_Usuarios">
+          <End Role="Adm_Usuarios" Type="Self.Adm_Usuarios" Multiplicity="1" />
+          <End Role="Adm_Negocios" Type="Self.Adm_Negocios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adm_Usuarios">
+              <PropertyRef Name="AIDUsuario" />
+            </Principal>
+            <Dependent Role="Adm_Negocios">
+              <PropertyRef Name="AIDUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adm_Sucursales_Adm_Negocios">
+          <End Role="Adm_Negocios" Type="Self.Adm_Negocios" Multiplicity="1" />
+          <End Role="Adm_Sucursales" Type="Self.Adm_Sucursales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adm_Negocios">
+              <PropertyRef Name="IDNegocio" />
+            </Principal>
+            <Dependent Role="Adm_Sucursales">
+              <PropertyRef Name="IDNegocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdministradorDeSazonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adm_Negocios" EntityType="Self.Adm_Negocios" />
+          <EntitySet Name="Adm_Sucursales" EntityType="Self.Adm_Sucursales" />
+          <EntitySet Name="Adm_Usuarios" EntityType="Self.Adm_Usuarios" />
+          <AssociationSet Name="FK_Adm_Negocios_Adm_Usuarios" Association="Self.FK_Adm_Negocios_Adm_Usuarios">
+            <End Role="Adm_Usuarios" EntitySet="Adm_Usuarios" />
+            <End Role="Adm_Negocios" EntitySet="Adm_Negocios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adm_Sucursales_Adm_Negocios" Association="Self.FK_Adm_Sucursales_Adm_Negocios">
+            <End Role="Adm_Negocios" EntitySet="Adm_Negocios" />
+            <End Role="Adm_Sucursales" EntitySet="Adm_Sucursales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdministradorDeSazonModelStoreContainer" CdmEntityContainer="AdministradorDeSazonEntities">
+          <EntitySetMapping Name="Adm_Negocios">
+            <EntityTypeMapping TypeName="AdministradorDeSazonModel.Adm_Negocios">
+              <MappingFragment StoreEntitySet="Adm_Negocios">
+                <ScalarProperty Name="IDNegocio" ColumnName="IDNegocio" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="FechaFundacion" ColumnName="FechaFundacion" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="AIDUsuario" ColumnName="AIDUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Adm_Sucursales">
+            <EntityTypeMapping TypeName="AdministradorDeSazonModel.Adm_Sucursales">
+              <MappingFragment StoreEntitySet="Adm_Sucursales">
+                <ScalarProperty Name="IDNegocio" ColumnName="IDNegocio" />
+                <ScalarProperty Name="IDSucursal" ColumnName="IDSucursal" />
+                <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaInicioOperacion" ColumnName="FechaInicioOperacion" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="NumeroExt" ColumnName="NumeroExt" />
+                <ScalarProperty Name="NumeroInt" ColumnName="NumeroInt" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="CP" ColumnName="CP" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Adm_Usuarios">
+            <EntityTypeMapping TypeName="AdministradorDeSazonModel.Adm_Usuarios">
+              <MappingFragment StoreEntitySet="Adm_Usuarios">
+                <ScalarProperty Name="AIDUsuario" ColumnName="AIDUsuario" />
+                <ScalarProperty Name="ACorreoElectronico" ColumnName="ACorreoElectronico" />
+                <ScalarProperty Name="ANombreUsuario" ColumnName="ANombreUsuario" />
+                <ScalarProperty Name="ANombre" ColumnName="ANombre" />
+                <ScalarProperty Name="ANacimientoAgno" ColumnName="ANacimientoAgno" />
+                <ScalarProperty Name="ANacimientoMes" ColumnName="ANacimientoMes" />
+                <ScalarProperty Name="AAvatar" ColumnName="AAvatar" />
+                <ScalarProperty Name="AIDUsuarioPadre" ColumnName="AIDUsuarioPadre" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="FechaUltimaSesion" ColumnName="FechaUltimaSesion" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

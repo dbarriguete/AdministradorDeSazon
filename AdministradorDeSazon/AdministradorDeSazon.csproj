@@ -50,6 +50,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -189,6 +191,30 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Adm_Negocios.cs">
+      <DependentUpon>DBAdmin_Usuarios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_Sucursales.cs">
+      <DependentUpon>DBAdmin_Usuarios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_Usuarios.cs">
+      <DependentUpon>DBAdmin_Usuarios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBAdmin_Usuarios.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBAdmin_Usuarios.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBAdmin_Usuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBAdmin_Usuarios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBAdmin_Usuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBAdmin_Usuarios.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,6 +232,16 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <Content Include="Models\DBAdmin_Usuarios.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBAdmin_Usuarios.edmx</DependentUpon>
+      <LastGenOutput>DBAdmin_Usuarios.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBAdmin_Usuarios.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBAdmin_Usuarios.edmx</DependentUpon>
+      <LastGenOutput>DBAdmin_Usuarios.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -252,7 +288,17 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Models\DBAdmin_Usuarios.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBAdmin_Usuarios.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBAdmin_Usuarios.edmx.diagram">
+      <DependentUpon>DBAdmin_Usuarios.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
