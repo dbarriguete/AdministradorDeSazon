@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdministradorDeSazonModelStoreContainer" CdmEntityContainer="AdministradorDeSazonEntities">
+    <EntitySetMapping Name="Adm_Negocios">
+      <EntityTypeMapping TypeName="AdministradorDeSazonModel.Adm_Negocios">
+        <MappingFragment StoreEntitySet="Adm_Negocios">
+          <ScalarProperty Name="IDNegocio" ColumnName="IDNegocio" />
+          <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="FechaFundacion" ColumnName="FechaFundacion" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="AIDUsuario" ColumnName="AIDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adm_Sucursales">
+      <EntityTypeMapping TypeName="AdministradorDeSazonModel.Adm_Sucursales">
+        <MappingFragment StoreEntitySet="Adm_Sucursales">
+          <ScalarProperty Name="IDNegocio" ColumnName="IDNegocio" />
+          <ScalarProperty Name="IDSucursal" ColumnName="IDSucursal" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaInicioOperacion" ColumnName="FechaInicioOperacion" />
+          <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="NumeroExt" ColumnName="NumeroExt" />
+          <ScalarProperty Name="NumeroInt" ColumnName="NumeroInt" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adm_Usuarios">
+      <EntityTypeMapping TypeName="AdministradorDeSazonModel.Adm_Usuarios">
+        <MappingFragment StoreEntitySet="Adm_Usuarios">
+          <ScalarProperty Name="AIDUsuario" ColumnName="AIDUsuario" />
+          <ScalarProperty Name="ACorreoElectronico" ColumnName="ACorreoElectronico" />
+          <ScalarProperty Name="ANombreUsuario" ColumnName="ANombreUsuario" />
+          <ScalarProperty Name="ANombre" ColumnName="ANombre" />
+          <ScalarProperty Name="ANacimientoAgno" ColumnName="ANacimientoAgno" />
+          <ScalarProperty Name="ANacimientoMes" ColumnName="ANacimientoMes" />
+          <ScalarProperty Name="AAvatar" ColumnName="AAvatar" />
+          <ScalarProperty Name="AIDUsuarioPadre" ColumnName="AIDUsuarioPadre" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+          <ScalarProperty Name="FechaUltimaSesion" ColumnName="FechaUltimaSesion" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

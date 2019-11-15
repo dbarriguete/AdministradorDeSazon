@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdministradorDeSazonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adm_Negocios">
+    <Key>
+      <PropertyRef Name="IDNegocio" />
+    </Key>
+    <Property Name="IDNegocio" Type="Guid" Nullable="false" />
+    <Property Name="NombreComercial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RazonSocial" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaFundacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaBaja" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="AIDUsuario" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Adm_Usuarios" Relationship="Self.FK_Adm_Negocios_Adm_Usuarios" FromRole="Adm_Negocios" ToRole="Adm_Usuarios" />
+    <NavigationProperty Name="Adm_Sucursales" Relationship="Self.FK_Adm_Sucursales_Adm_Negocios" FromRole="Adm_Negocios" ToRole="Adm_Sucursales" />
+  </EntityType>
+  <EntityType Name="Adm_Sucursales">
+    <Key>
+      <PropertyRef Name="IDSucursal" />
+    </Key>
+    <Property Name="IDNegocio" Type="Guid" Nullable="false" />
+    <Property Name="IDSucursal" Type="Guid" Nullable="false" />
+    <Property Name="NombreSucursal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaInicioOperacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+    <Property Name="Calle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroExt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroInt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Colonia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Municipio" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Ubicacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Adm_Negocios" Relationship="Self.FK_Adm_Sucursales_Adm_Negocios" FromRole="Adm_Sucursales" ToRole="Adm_Negocios" />
+  </EntityType>
+  <EntityType Name="Adm_Usuarios">
+    <Key>
+      <PropertyRef Name="AIDUsuario" />
+    </Key>
+    <Property Name="AIDUsuario" Type="Guid" Nullable="false" />
+    <Property Name="ACorreoElectronico" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ANombreUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ANombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ANacimientoAgno" Type="Int16" Nullable="false" />
+    <Property Name="ANacimientoMes" Type="Byte" Nullable="false" />
+    <Property Name="AAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AIDUsuarioPadre" Type="Guid" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimaSesion" Type="DateTime" Precision="3" />
+    <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Permiso" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Adm_Negocios" Relationship="Self.FK_Adm_Negocios_Adm_Usuarios" FromRole="Adm_Usuarios" ToRole="Adm_Negocios" />
+  </EntityType>
+  <Association Name="FK_Adm_Negocios_Adm_Usuarios">
+    <End Role="Adm_Usuarios" Type="Self.Adm_Usuarios" Multiplicity="1" />
+    <End Role="Adm_Negocios" Type="Self.Adm_Negocios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adm_Usuarios">
+        <PropertyRef Name="AIDUsuario" />
+      </Principal>
+      <Dependent Role="Adm_Negocios">
+        <PropertyRef Name="AIDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adm_Sucursales_Adm_Negocios">
+    <End Role="Adm_Negocios" Type="Self.Adm_Negocios" Multiplicity="1" />
+    <End Role="Adm_Sucursales" Type="Self.Adm_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adm_Negocios">
+        <PropertyRef Name="IDNegocio" />
+      </Principal>
+      <Dependent Role="Adm_Sucursales">
+        <PropertyRef Name="IDNegocio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdministradorDeSazonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adm_Negocios" EntityType="Self.Adm_Negocios" />
+    <EntitySet Name="Adm_Sucursales" EntityType="Self.Adm_Sucursales" />
+    <EntitySet Name="Adm_Usuarios" EntityType="Self.Adm_Usuarios" />
+    <AssociationSet Name="FK_Adm_Negocios_Adm_Usuarios" Association="Self.FK_Adm_Negocios_Adm_Usuarios">
+      <End Role="Adm_Usuarios" EntitySet="Adm_Usuarios" />
+      <End Role="Adm_Negocios" EntitySet="Adm_Negocios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adm_Sucursales_Adm_Negocios" Association="Self.FK_Adm_Sucursales_Adm_Negocios">
+      <End Role="Adm_Negocios" EntitySet="Adm_Negocios" />
+      <End Role="Adm_Sucursales" EntitySet="Adm_Sucursales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
