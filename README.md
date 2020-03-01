@@ -12,10 +12,10 @@ El sistema es utilizado por medio de diferentes usuarios:
 * Gerentes del lugar
 
 ## Para usarlo por primera vez como usuario final
-*Un administrador de un restaurante debe de registrarse como Administrador, es el perfil inicial para poder generar una empresa o negocio
-*Posteriormente se registra una empresa o negocio (puede haber más de una empresa o negocio) (Opcional)
-*Se registra una sucursal  (Al menos debe existir una sucursal)
-*Se registra un operador (Opcional)
+* Un administrador de un restaurante debe de registrarse como Administrador, es el perfil inicial para poder generar una empresa o negocio
+* Posteriormente se registra una empresa o negocio (puede haber más de una empresa o negocio) (Opcional)
+* Se registra una sucursal  (Al menos debe existir una sucursal)
+* Se registra un operador (Opcional)
 
 ## Control de inicio de sesión
 
