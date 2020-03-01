@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.form_textRight {
+    text-align:right;
+}

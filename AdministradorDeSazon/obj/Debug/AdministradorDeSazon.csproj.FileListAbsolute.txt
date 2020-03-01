@@ -119,8 +119,8 @@ C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\Admi
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.csprojAssemblyReference.cache
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.csproj.CoreCompileInputs.cache
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.csproj.CopyComplete
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.dll
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.pdb
+C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.csprojAssemblyReference.cache

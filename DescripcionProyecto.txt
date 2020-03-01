@@ -1,0 +1,26 @@
+Administrador de Sazón
+
+
+Es una aplicación en donde puedes dar de alta tu servicio de restaurante y tus sucursales para poder administrar las ordenes de cada uno de los restaurantes y comenzales.
+	Se puede registrar el usuario por medio de su correo, contraseña y nombre de usuario, sólo se puede un usuario por correo electrónico.
+	Se puede registrar el usuario por medio de su cuenta de facebook, sólo se puede un usuario por cuenta de FB
+
+	Los otros usuarios pueden usar o no un correo y pueden registrarse por medio del administrador del restaurante registrado originalmente.
+	La única razón para utilizar un correo es para notificar al usuario siempre, cualquier empleado del 
+	
+
+Existe una aplicación independiente de registro de usuarios en donde el usuario va a registrarse por su propia cuenta.
+	Los usuarios se registran
+	En caso de entrar al restaurante
+
+
+
+
+
+
+
+
+
+
+
+
