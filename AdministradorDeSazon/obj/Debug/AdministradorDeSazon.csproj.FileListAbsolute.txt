@@ -123,4 +123,3 @@ C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\Admi
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.csproj.CopyComplete
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.dll
 C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.pdb
-C:\Users\go_di\Documents\IdeasExponenciales\Desarrollo\AdministradorDeSazon\AdministradorDeSazon\obj\Debug\AdministradorDeSazon.csprojAssemblyReference.cache

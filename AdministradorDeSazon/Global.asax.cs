@@ -19,5 +19,10 @@ namespace AdministradorDeSazon
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void OnError()
+        {
+
+        }
     }
 }
